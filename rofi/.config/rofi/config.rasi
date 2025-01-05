@@ -1,0 +1,95 @@
+@theme "/home/saipr/.cache/wal/colors-rofi-dark.rasi"
+
+configuration {
+	show-icons: false;
+  icon-theme: "Papirus";
+	location: 0;
+	font: "JetBrainsMono NF SemiBold 18";	
+	display-drun: "";
+  
+  /* for custom ones do Test:~/path/to/file */
+  modi: "drun,clipboard:~/.config/rofi/cliphist-rofi-img,emoji,screenshot:~/.config/rofi/rofi-screenshot,powermenu:~/.config/rofi/rofi-power-menu";
+  display-drun: " ";
+  display-window: "  ";
+  display-clipboard: "󰅍";
+  display-emoji: "󰞅";
+  display-powermenu: "";
+  display-screenshot: "󰹑";
+}
+
+window { 
+  border: 2px solid;
+  border-color: @foreground;
+	transparency: "real";
+	orientation: vertical;
+  border-radius: 2px;
+  padding: 1 1 1 12;
+}
+
+mainbox {
+	children: [inputbar, listview];
+}
+
+// ELEMENT
+// -----------------------------------
+
+element {
+	padding: 8 12;
+  border-radius: 2px;
+}
+
+element-icon {
+	size: 36 px;
+	background-color: inherit;
+	padding: 0 6 0 0;
+	alignment: vertical;
+}
+
+element selected {
+}
+
+element-text {
+	background-color: inherit;
+	text-color: inherit;
+}
+
+listview {
+	columns: 1;
+	lines: 9;
+	padding: 0 0;
+	fixed-height: true;
+	fixed-columns: true;
+	fixed-lines: true;
+}
+
+// INPUT BAR 
+//------------------------------------------------
+
+#inputbar {
+  children: [prompt, entry];
+  padding: 12;
+}
+
+entry {
+}
+
+prompt {
+  padding: 0 30 0 12;
+}
+
+// KEYMAPS
+//------------------------------------------------
+
+configuration {
+  kb-mode-complete: "";
+  kb-element-next: "";
+  kb-element-prev: "";
+  kb-row-up: "ISO_Left_Tab,Up";
+  kb-row-down: "Tab,Down";
+  kb-accept-entry: "Control+m,Return,KP_Enter";
+  terminal: "kitty";
+  kb-remove-to-eol: "Control+Shift+e";
+  kb-mode-next: "Shift+Right,Control+l";
+  kb-mode-previous: "Shift+Left,Control+h";
+  kb-remove-char-back: "BackSpace";
+}

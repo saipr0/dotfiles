@@ -1,0 +1,142 @@
+{
+  "hyprland/workspaces": {
+    "on-scroll-up": "hyprctl dispatch workspace r-1",
+    "on-scroll-down": "hyprctl dispatch workspace r+1",
+    "on-click": "activate",
+    "active-only": false,
+    "all-outputs": true,
+    "format": "{icon}",
+    "format-icons": {
+      "1": "一",
+      "2": "二",
+      "3": "三",
+      "4": "四",
+      "5": "五",
+      "6": "六",
+      "7": "七",
+      "8": "八",
+      "9": "九",
+      "10": "十"
+    },
+    "persistent-workspaces": {
+            "*": 10
+    }
+  },
+
+  "hyprland/window": {
+    "rewrite": {
+      "(.*) - Brave": "$1",
+      "(.*) - Chromium": "$1",
+      "(.*) - Brave Search": "$1",
+      "(.*) - Outlook": "$1",
+      "(.*) Microsoft Teams": "$1"
+    },
+    "separate-outputs": true,
+    "max-length": 25
+  },
+
+  "custom/empty": {
+    "format": ""
+  },
+
+  "tray": {
+    "icon-size": 21,
+    "spacing": 10
+  },
+
+  "clock": {
+        "format": "\uf017 {:%H:%M - %a %Od}",
+    "on-click": "ags toggle calendar",
+    "tooltip": false
+  },
+
+  "cpu": {
+    "format": "  {usage}%",
+    "interval": 2,
+    "tooltip": false
+  },
+
+  "network": {
+    "format": "{ifname}",
+    "format-alt": "  {essid}",
+    "format-wifi": "  {bandwidthDownBytes:=}",
+    "interval": 5,
+    "format-ethernet": "  {bandwidthDownBytes:=}",
+    "format-disconnected": "Disconnected",
+    "tooltip-format": " {ifname} via {gwaddri}",
+    "tooltip-format-wifi": "  {ifname} @ {essid}\nIP: {ipaddr}\nStrength: {signalStrength}%\nFreq: {frequency}MHz\nUp: {bandwidthUpBits} Down: {bandwidthDownBits}",
+    "tooltip-format-ethernet": " {ifname}\nIP: {ipaddr}\n up: {bandwidthUpBits} down: {bandwidthDownBits}",
+    "tooltip-format-disconnected": "Disconnected",
+    "max-length": 50,
+    "on-click-right": "~/.config/scripts/networkmanager.sh"
+  },
+
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon} {capacity}% - {power:4.2f}",
+    "format-charging": " {capacity}% - {power:4.2f}",
+    "format-plugged": " {capacity}% - {power:4.2f}",
+    "format-alt": "{icon} {time}",
+    "interval": 2,
+    "format-icons": [" ", " ", " ", " ", " "]
+  },
+
+  "pulseaudio": {
+    "format": "{icon}  {volume}%",
+    "format-bluetooth": "{volume}% {icon} {format_source}",
+    "format-bluetooth-muted": "  {icon} {format_source}",
+    "format-muted": "  {format_source}",
+    "format-source": "{volume}% ",
+    "format-source-muted": "",
+    "format-icons": {
+      "headphone": " ",
+      "hands-free": " ",
+      "headset": " ",
+      "phone": " ",
+      "portable": " ",
+      "car": " ",
+      "default": ["", "", ""]
+    },
+    "on-click": "pavucontrol"
+  },
+
+  "bluetooth": {
+    "format": " {num_connections}",
+    "format-disabled": "󰂲",
+    "format-off": "󰂲",
+    "interval": 30,
+    "on-click": "blueman-manager",
+    "format-no-controller": ""
+  },
+
+  "user": {
+    "format": "{user}",
+    "interval": 60,
+    "icon": false
+  },
+
+  "backlight": {
+    "format": "{icon} {percent}%",
+    "format-icons": ["󰃝 "],
+    "scroll-step": 1
+  },
+  "custom/music": {
+    "format": "{icon}{0}",
+    "format-icons": {
+      "Paused": "\uf04c ",
+      "Stopped": "&#x202d;~" 
+    },
+    "escape": true,
+    "tooltip": true,
+    "exec": "~/.config/scripts/caway.sh -b 8",
+    "return-type": "json",
+    "on-click": "playerctl play-pause -p spotify",
+    "on-scroll-up": "",
+    "on-scroll-down": "",
+    "on-click-right": "playerctl play-pause -p firefox",
+    "max-length": 25
+  }
+}

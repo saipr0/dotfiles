@@ -1,0 +1,58 @@
+#!/usr/bin/env bash
+
+# This script defines a rofi mode for taking screenshots.
+
+set -e
+set -u
+
+# All supported choices
+all=(
+    "Capture Screen -> Copy"
+    "Capture Region -> Copy"
+    "Capture Screen -> Edit"
+    "Capture Region -> Edit"
+    "Capture Screen -> Copy & Save"
+    "Capture Region -> Copy & Save"
+    "Edit image in clipboard"
+)
+
+# By default, show all choices
+show=("${all[@]}")
+
+declare -A actions
+actions["Capture Screen -> Copy"]="grim -t png - | wl-copy"
+actions["Capture Region -> Copy"]='grim -g "$(slurp)" - | convert - -shave 1x1 PNG:- | wl-copy'
+actions["Capture Screen -> Edit"]="grim -t png - | swappy -f -"
+actions["Capture Region -> Edit"]='grim -g "$(slurp)" - | convert - -shave 1x1 PNG:- | swappy -f -'
+actions["Capture Screen -> Copy & Save"]='grim -t png - | tee ~/Pictures/Screenshots/screenshot_$(date +'%Y-%m-%d_%H-%M-%S').png | wl-copy'
+actions["Capture Region -> Copy & Save"]='grim -g "$(slurp)" - | convert - -shave 1x1 PNG:- | tee ~/Pictures/Screenshots/screenshot_$(date +'%Y-%m-%d_%H-%M-%S').png | wl-copy'
+actions["Edit image in clipboard"]="wl-paste | swappy -f -"
+
+# Ensure directories exist
+mkdir -p ~/Pictures/Screenshots
+
+# Don't allow custom entries
+echo -e "\0no-custom\x1ftrue"
+
+if [ $# -gt 0 ]; then
+    # If arguments given, use those as the selection
+    selection="$@"
+else
+    # Otherwise, show the menu
+    for entry in "${show[@]}"; do
+        echo "$entry"
+    done
+fi
+
+# Execute the selected action
+for entry in "${show[@]}"; do
+    if [ "$selection" = "$entry" ]; then
+        # Use a separate script to execute the command with a delay
+        (pkill rofi && sleep 0.2 && sh -c "${actions[$entry]}" &)
+        exit 0
+    fi
+done
+
+# The selection didn't match anything, so raise an error
+echo "Invalid selection: $selection" >&2
+exit 1

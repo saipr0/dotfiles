@@ -1,0 +1,213 @@
+/* Color Variables */
+@define-color background #171717;
+@define-color workspace-color @color5;
+@define-color text rgba(255, 255, 255, 0.6);
+@define-color critical #f53c3c;
+
+/* Base Styles */
+* {
+    font-family: "JetBrainsMono NF", "Fira Sans Semibold", "Font Awesome 6 Free", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+    border: none;
+    border-radius: 0px;
+}
+
+window#waybar {
+    background-color: rgba(0,0,0,0.8);
+    background: transparent;
+    transition-property: background-color;
+    transition-duration: .5s;
+    border-bottom: 0px solid @text;
+}
+
+/* Workspaces */
+#workspaces {
+    background: transparent;
+    margin: 0px 1px 1px 1px;
+    padding: 0px;
+    border-radius: 15px;
+    font-weight: 800;
+    font-size: 14px;
+    color: @text;
+}
+
+#workspaces button {
+    padding: 2px 8px;
+    margin: 4px 3px;
+    border-radius: 2px;
+    color: @text;
+    opacity: 0.8;
+    background-color: @background;
+}
+
+#workspaces button.active {
+    color: @background;
+    background: alpha(@text, 0.4);
+    border-radius: 2px;
+}
+
+#workspaces button:hover {
+    color: @text;
+    background: @background;
+    border-radius: 15px;
+}
+
+/* Tooltips */
+tooltip {
+    border-radius: 10px;
+    background-color: @background;
+    opacity: 0.8;
+    padding: 20px;
+    margin: 0px;
+}
+
+tooltip label {
+    color: @text;
+}
+
+/* Window */
+#window {
+    background: @background;
+    margin: 4px 3px 4px 0px;
+    padding: 0px 10px;
+    border-radius: 15px;
+    color: @text;
+    font-size: 16px;
+    opacity: 0.8;
+}
+
+window#waybar.empty #window {
+    background-color: transparent;
+}
+
+/* Module Layout */
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
+}
+
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
+}
+
+/* Common Module Styles */
+#cpu,
+#clock,
+#backlight,
+#pulseaudio,
+#network,
+#battery,
+#tray,
+#custom-music.Playing,
+#custom-music.Paused,
+#custom-music.Stopped,
+#bluetooth,
+#bluetooth.on,
+#bluetooth.connected,
+#bluetooth.off {
+    background-color: @background;
+    color: @text;
+    font-size: 16px;
+    border-radius: 2px;
+    padding: 0px 10px;
+    margin: 2px 6px 2px 0px;
+    opacity: 0.8;
+    font-weight: 700;
+}
+
+#clock { margin: 2px 0px 2px 0px; }
+
+#battery.charging,
+#battery.plugged {
+    color: @text;
+    background-color: @background;
+}
+
+@keyframes blink {
+    to {
+        background-color: @background;
+        color: @text;
+    }
+}
+
+#battery.critical:not(.charging) {
+    background-color: @critical;
+    color: @text;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+/* Tray states */
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+}
+
+/* Ease section left untouched as requested */
+#workspaces button,
+#workspaces button.active,
+#window,
+#clock,
+#pulseaudio,
+#pulseaudio.muted,
+#network,
+#network.wifi,
+#network.ethernet,
+#backlight,
+#battery,
+#battery.charging,
+#battery.plugged,
+#custom-music.Playing,
+#custom-music.Paused,
+#custom-music.Stopped {
+    /*color: #DCD7BA;*/
+}/**/
+/*#workspaces button,*/
+/*#workspaces button.active {*/
+/*      background-color: rgba(29, 105, 98, 1);*/
+/*    color: #DCD7BA;*/
+/**/
+/*}*/
+/**/
+/*#custom-updates  {*/
+/*    background-color: rgba(82, 102, 9, 1);*/
+/**/
+/*}*/
+/**/
+/*#clock {*/
+/*    background-color: rgba(140, 38, 33, 1);*/
+/**/
+/*}*/
+/**/
+/*#pulseaudio, #pulseaudio.muted {*/
+/*    background-color: rgba(138, 105, 1, 1);*/
+/**/
+/*}*/
+/**/
+/*#network, #network.wifi,#network.ethernet {*/
+/*    background-color: rgba(150, 66, 17, 1);*/
+/**/
+/*}*/
+/**/
+/*#backlight {*/
+/*    background-color: rgba(75, 51, 126, 1);*/
+/**/
+/*}*/
+/**/
+/*#battery,*/
+/*#battery.charging,*/
+/*#battery.plugged {*/
+/*    background-color: rgba(128, 38, 89, 1);*/
+/**/
+/*}*/
+/**/
+/*#custom-music.Playing,*/
+/*#custom-music.Paused,*/
+/*#custom-music.Stopped {*/
+/*    background-color: rgba(32, 94, 166, 1);*/
+/*}*/
+/**/
