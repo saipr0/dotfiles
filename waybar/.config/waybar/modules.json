@@ -46,8 +46,13 @@
 
   "clock": {
         "format": "\uf017 {:%H:%M - %a %Od}",
-    "on-click": "ags toggle calendar",
-    "tooltip": false
+    "on-click": "~/.config/scripts/calendar.sh curr",
+    "on-click-right": "~/.config/scripts/calendar.sh next",
+    "on-click-middle": "~/.config/scripts/calendar.sh prev",
+    "tooltip": false,
+    "smooth-scrolling-threshold": 2,
+    "on-scroll-down": "~/.config/scripts/calendar.sh next",
+    "on-scroll-up": "~/.config/scripts/calendar.sh prev"
   },
 
   "cpu": {
@@ -138,5 +143,11 @@
     "on-scroll-down": "",
     "on-click-right": "playerctl play-pause -p firefox",
     "max-length": 25
+  },
+  "custom/dnd": {
+    "format": "",
+    "tooltip": false,
+    "format-alt": "",
+    "on-click": "dunstctl set-paused toggle"
   }
 }

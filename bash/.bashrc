@@ -40,6 +40,9 @@ alias wifi='nmtui'
 # path
 
 export EDITOR=nvim
+PATH=$PATH:/home/saipr/.local/bin
+
+eval "$(oh-my-posh init bash --config /home/saipr/.config/ohmyposh/zen.toml)"
 
 # init
 

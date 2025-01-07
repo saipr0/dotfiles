@@ -33,6 +33,7 @@
       "pulseaudio",
     "cpu",
     "network",
-      "clock"
+      "clock",
+      "custom/dnd"
     ]
 }
