@@ -20,12 +20,12 @@ all=(
 show=("${all[@]}")
 
 declare -A actions
-actions["Capture Screen -> Copy"]="grim -t png - | wl-copy"
-actions["Capture Region -> Copy"]='grim -g "$(slurp)" - | convert - -shave 1x1 PNG:- | wl-copy'
-actions["Capture Screen -> Edit"]="grim -t png - | swappy -f -"
+actions["Capture Screen -> Copy"]='grim -t png - | wl-copy && dunstify "󰹑  Screenshot Copied" '
+actions["Capture Region -> Copy"]='grim -g "$(slurp)" - | convert - -shave 1x1 PNG:- | wl-copy && dunstify "󰹑  Screenshot Copied"'
+actions["Capture Screen -> Edit"]='grim -t png - | swappy -f -'
 actions["Capture Region -> Edit"]='grim -g "$(slurp)" - | convert - -shave 1x1 PNG:- | swappy -f -'
-actions["Capture Screen -> Copy & Save"]='grim -t png - | tee ~/Pictures/Screenshots/screenshot_$(date +'%Y-%m-%d_%H-%M-%S').png | wl-copy'
-actions["Capture Region -> Copy & Save"]='grim -g "$(slurp)" - | convert - -shave 1x1 PNG:- | tee ~/Pictures/Screenshots/screenshot_$(date +'%Y-%m-%d_%H-%M-%S').png | wl-copy'
+actions["Capture Screen -> Copy & Save"]='grim -t png - | tee ~/Pictures/Screenshots/screenshot_$(date +'%Y-%m-%d_%H-%M-%S').png | wl-copy && dunstify "󰹑  Screenshot Saved to ~/Pictures/Screenshots" '
+actions["Capture Region -> Copy & Save"]='grim -g "$(slurp)" - | convert - -shave 1x1 PNG:- | tee ~/Pictures/Screenshots/screenshot_$(date +'%Y-%m-%d_%H-%M-%S').png | wl-copy && dunstify "󰹑  Screenshot Saved to ~/Pictures/Screenshots"'
 actions["Edit image in clipboard"]="wl-paste | swappy -f -"
 
 # Ensure directories exist
