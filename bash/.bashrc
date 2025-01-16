@@ -37,10 +37,16 @@ alias v='$EDITOR'
 alias vim='$EDITOR'
 alias wifi='nmtui'
 
+alias gg='g++ -ggdb -pedantic-errors -Wall -Weffc++ -Wextra -Wconversion -Wsign-conversion -Werror -std=c++23 -o main main.cpp && ./main'
+alias llms='source ~/miniconda3/bin/activate && conda activate open-webui && open-webui serve'
+
 # path
 
 export EDITOR=nvim
+
+export EDITOR=nvim
 PATH=$PATH:/home/saipr/.local/bin
+export PATH
 
 eval "$(oh-my-posh init bash --config /home/saipr/.config/ohmyposh/zen.toml)"
 
@@ -62,3 +68,6 @@ function y() {
 
 # Set up Node Version Manager
 source /usr/share/nvm/init-nvm.sh
+
+. /opt/asdf-vm/asdf.sh
+

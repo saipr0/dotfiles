@@ -1,7 +1,7 @@
 @theme "/home/saipr/.cache/wal/colors-rofi-dark.rasi"
 
 configuration {
-	show-icons: false;
+	show-icons: true;
   icon-theme: "Papirus";
 	location: 0;
 	font: "JetBrainsMono NF SemiBold 18";	
@@ -54,7 +54,7 @@ element-text {
 }
 
 listview {
-	columns: 1;
+	columns: 2;
 	lines: 9;
 	padding: 0 0;
 	fixed-height: true;

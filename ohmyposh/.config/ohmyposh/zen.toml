@@ -3,10 +3,10 @@ final_space = true
 version = 3
 
 [palette]
-pink = "#c2c2c2"
+pink = "##A2A2A2"
 closer = "p:os"
-os = "#7B747B"
-lavender = "#A79F9C"
+os = "#7C7C7C"
+lavender = "#7C7C7C"
 blue = "p:os"
 
 [[blocks]]

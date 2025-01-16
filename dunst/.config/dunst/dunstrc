@@ -35,19 +35,19 @@ vertical_alignment = center
 offset = (2, 5)
 
 [urgency_low]
-background = "#131116"
+background = "#171717"
 foreground = "#ffffff"
 highlight = "#888888"
 timeout = 5
 
 [urgency_normal]
-background = "#131116"
+background = "#171717"
 foreground = "#ffffff"
 highlight = "#888888"
 timeout = 5
 
 [urgency_critical]
-background = "#131116"
+background = "#171717"
 foreground = "#C8758C"
 highlight = "#888888"
 timeout = 5

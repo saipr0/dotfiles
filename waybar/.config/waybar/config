@@ -1,10 +1,10 @@
 {
   // General Settings
   "layer": "top",
-    "margin-top": 1,
+    "margin-top": 7,
     "margin-bottom": 0,
-    "margin-left": 3,
-    "margin-right": 3,    
+    "margin-left": 8,
+    "margin-right": 8,    
     "spacing": 0,
 
     // Load Modules
@@ -31,7 +31,8 @@
     "modules-right": [
       // "hyprland/window",
       "pulseaudio",
-    "cpu",
+    //"cpu",
+    "temperature",
     "network",
       "clock",
       "custom/dnd"

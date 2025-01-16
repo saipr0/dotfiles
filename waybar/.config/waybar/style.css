@@ -1,5 +1,5 @@
 /* Color Variables */
-@define-color background alpha(#28242A,0.95);
+@define-color background alpha(#171717,0.95);
 @define-color text rgba(255, 255, 255, 0.6);
 @define-color critical #f53c3c;
 
@@ -20,35 +20,35 @@ window#waybar {
 
 /* Workspaces */
 #workspaces {
-    background: transparent;
-    margin: 0px 1px 1px 1px;
-    padding: 0px;
-    border-radius: 15px;
+    background: alpha(@background, 0);
+    padding: 0px 4px;
+    border-radius: 4px;
     font-weight: 700;
     font-size: 14px;
     color: @text;
+    margin: 0px 2px;
+}
+
+#workspaces button,
+#workspaces button.active,
+#workspaces button:hover {
+    border-radius: 0px;
 }
 
 #workspaces button {
-    padding: 2px 8px;
-    margin: 4px 3px;
-    border-radius: 2px;
-    color: @text;
-    opacity: 0.95;
-    background-color: @background;
+    padding: 0px 0px;
+    margin: 0px 8px;
+    color: #5C5C5C;
+    opacity: 1;
+    background-color: transparent;
 }
 
-#workspaces button.active {
-    color: @background;
-    background: alpha(@background, 0.1);
-    border-radius: 2px;
-}
-
+#workspaces button.active,
 #workspaces button:hover {
-    color: @background;
-    background: alpha(@background, 0.1);
-    border-radius: 2px;
+    color: @text;
+    background: transparent;
 }
+
 
 /* Tooltips */
 tooltip {
@@ -61,17 +61,6 @@ tooltip {
 
 tooltip label {
     color: @text;
-}
-
-/* Window */
-#window {
-    background: @background;
-    margin: 4px 3px 4px 0px;
-    padding: 0px 10px;
-    border-radius: 15px;
-    color: @text;
-    font-size: 16px;
-    opacity: 1;
 }
 
 window#waybar.empty #window {
@@ -89,11 +78,13 @@ window#waybar.empty #window {
 
 /* Common Module Styles */
 #cpu,
+#window,
 #clock,
 #custom-dnd,
 #backlight,
 #pulseaudio,
 #network,
+#temperature,
 #battery,
 #tray,
 #custom-music.Playing,
@@ -103,25 +94,20 @@ window#waybar.empty #window {
 #bluetooth.on,
 #bluetooth.connected,
 #bluetooth.off {
-    background-color: @background;
+    background-color: alpha(@background, 0.9);
     color: @text;
     font-size: 16px;
-    border-radius: 2px;
-    padding: 0px 10px;
-    margin: 2px 3px 2px 0px;
+    border-radius: 4px;
+    padding: 4px 10px;
+    margin: 0px 6px 0px 0px;
     opacity: 1;
     font-weight: 700;
+    border: 2px solid alpha(@text, 0.1);
 }
 
 #custom-dnd { 
-    margin: 2px 0px 2px 0px; 
+    margin-right: 0px;
     padding-right: 13px;
-}
-
-#battery.charging,
-#battery.plugged {
-    color: @text;
-    background-color: @background;
 }
 
 @keyframes blink {
