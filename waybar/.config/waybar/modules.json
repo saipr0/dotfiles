@@ -82,9 +82,9 @@
       "critical": 15
     },
     "format": "{icon} {capacity}% - {power:4.2f}",
-    "format-charging": " {capacity}% - {power:4.2f}",
-    "format-plugged": " {capacity}% - {power:4.2f}",
-    "format-alt": "{icon} {time}",
+    "format-charging": " {capacity}%",
+    "format-plugged": " {capacity}%",
+    "format-alt": "{icon} {capacity}%",
     "interval": 2,
     "format-icons": [" ", " ", " ", " ", " "]
   },
@@ -130,6 +130,7 @@
   },
   "custom/music": {
     "format": "{icon}{0}",
+    "format-alt": "cava",
     "format-icons": {
       "Paused": "\uf04c ",
       "Stopped": "&#x202d;~" 
@@ -138,10 +139,10 @@
     "tooltip": true,
     "exec": "~/.config/scripts/caway.sh -b 8",
     "return-type": "json",
-    "on-click": "playerctl play-pause -p spotify",
     "on-scroll-up": "",
     "on-scroll-down": "",
-    "on-click-right": "playerctl play-pause -p firefox",
+    "on-click-right": "playerctl play-pause -p spotify",
+    "on-click-middle": "playerctl play-pause -p firefox",
     "max-length": 25
   },
   "custom/dnd": {

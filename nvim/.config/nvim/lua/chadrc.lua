@@ -6,7 +6,7 @@
 local M = {}
 
 M.base46 = {
-	theme = "catppuccin",
+	theme = "pastelDark",
   transparency = true,
 
 	hl_override = {
@@ -16,7 +16,17 @@ M.base46 = {
 }
 
 M.nvdash = {
-  load_on_startup = false,
+  load_on_startup = true,
+}
+
+M.ui = {
+  cmp = {
+    style = "atom"
+  },
+
+  statusline = {
+    theme = "vscode"
+  }
 }
 
 return M

@@ -40,11 +40,68 @@ icons[cancel]="\Uf0156"
 declare -A actions
 actions[lockscreen]="loginctl lock-session ${XDG_SESSION_ID-}"
 #actions[switchuser]="???"
-actions[logout]="loginctl terminate-session ${XDG_SESSION_ID-}"
+actions[logout]="logout"
 actions[suspend]="systemctl suspend"
 actions[hibernate]="systemctl hibernate"
-actions[reboot]="systemctl reboot"
-actions[shutdown]="systemctl poweroff"
+actions[reboot]="reboot"
+actions[shutdown]="shutdown"
+
+function close_apps() {
+    # Kill rofi first and wait
+    pkill rofi && sleep 0.2
+
+    mkdir -p /tmp/hypr
+    local LOG_FILE="/tmp/hypr/hyprexitwithgrace.log"
+    
+    notify-send "Power Controls" "Initiating graceful shutdown..."
+    
+    # Close all client windows
+    if ! HYPRCMDS=$(hyprctl -j clients | jq -j '.[] | "dispatch closewindow address:\(.address); "'); then
+        notify-send "Power Controls" "Failed to generate window close commands"
+        exit 1
+    fi
+
+    if [ -n "$HYPRCMDS" ]; then
+        hyprctl --batch "$HYPRCMDS" >> "$LOG_FILE" 2>&1
+        notify-send "Power Controls" "Closing applications..."
+        
+        # Give applications time to close gracefully
+        sleep 2
+        
+        # Check if all windows closed
+        local remaining_windows=$(hyprctl clients | grep "class:" | wc -l)
+        
+        if [ "$remaining_windows" -eq "0" ]; then
+            notify-send "Power Controls" "All applications closed successfully"
+            return 0
+        else
+            notify-send "Power Controls" "$remaining_windows application(s) failed to close"
+            exit 1
+        fi
+    else
+        notify-send "Power Controls" "No windows to close"
+        return 0
+    fi
+}
+
+function logout() {
+  close_apps
+  sleep 1
+  hyprctl dispatch exit
+}
+
+function shutdown() {
+  close_apps
+  sleep 1
+  systemctl poweroff
+}
+
+function reboot() {
+  close_apps
+  sleep 1
+  systemctl reboot
+}
+
 
 # By default, ask for confirmation for actions that are irreversible
 confirmations=(reboot shutdown logout)

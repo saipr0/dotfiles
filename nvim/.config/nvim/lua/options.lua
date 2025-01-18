@@ -6,4 +6,4 @@ require "nvchad.options"
 -- o.cursorlineopt ='both' -- to enable cursorline!
 
 vim.opt.swapfile = false
-
+vim.opt.relativenumber = true
