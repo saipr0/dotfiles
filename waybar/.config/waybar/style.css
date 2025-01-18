@@ -1,79 +1,79 @@
 /* Color Variables */
-@define-color background alpha(#171717,0.95);
+@define-color background alpha(#171717, 0.95);
 @define-color text rgba(255, 255, 255, 0.6);
 @define-color critical #f53c3c;
 
 /* Base Styles */
 * {
-    font-family: "JetBrainsMono NF", "Fira Sans Semibold", "Font Awesome 6 Free", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
-    border: none;
-    border-radius: 0px;
+  font-family: "JetBrainsMono NF", "Fira Sans Semibold", "Font Awesome 6 Free",
+    FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+  border: none;
+  border-radius: 0px;
 }
 
 window#waybar {
-    background-color: rgba(0,0,0,0.8);
-    background: transparent;
-    transition-property: background-color;
-    transition-duration: .5s;
-    border-bottom: 0px solid @text;
+  background-color: rgba(0, 0, 0, 0.8);
+  background: transparent;
+  transition-property: background-color;
+  transition-duration: 0.5s;
+  border-bottom: 0px solid @text;
 }
 
 /* Workspaces */
 #workspaces {
-    background: alpha(@background, 0);
-    padding: 0px 4px;
-    border-radius: 4px;
-    font-weight: 700;
-    font-size: 14px;
-    color: @text;
-    margin: 0px 2px;
+  background: alpha(@background, 0);
+  padding: 0px 4px;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 14px;
+  color: @text;
+  margin: 0px 2px;
 }
 
 #workspaces button,
 #workspaces button.active,
 #workspaces button:hover {
-    border-radius: 0px;
+  border-radius: 0px;
 }
 
 #workspaces button {
-    padding: 0px 0px;
-    margin: 0px 8px;
-    color: #5C5C5C;
-    opacity: 1;
-    background-color: transparent;
+  padding: 0px 0px;
+  margin: 0px 8px;
+  color: #5c5c5c;
+  opacity: 1;
+  background-color: transparent;
 }
 
 #workspaces button.active,
 #workspaces button:hover {
-    color: @text;
-    background: transparent;
+  color: @text;
+  background: transparent;
 }
-
 
 /* Tooltips */
 tooltip {
-    border-radius: 2px;
-    background-color: @background;
-    opacity: 0.8;
-    padding: 20px;
-    margin: 0px;
+  border-radius: 2px;
+  background-color: @background;
+  opacity: 0.8;
+  padding: 20px;
+  margin: 0px;
 }
 
 tooltip label {
-    color: @text;
+  color: @text;
 }
 
 window#waybar.empty #window {
-    background-color: transparent;
+  background-color: transparent;
 }
 
 /* Module Layout */
 .modules-left > widget:first-child > #workspaces {
-    margin-left: 0;
+  margin-left: 0;
 }
 
 .modules-right > widget:last-child > #workspaces {
-    margin-right: 0;
+  margin-right: 0;
 }
 
 /* Common Module Styles */
@@ -94,46 +94,46 @@ window#waybar.empty #window {
 #bluetooth.on,
 #bluetooth.connected,
 #bluetooth.off {
-    background-color: alpha(@background, 0.9);
-    color: @text;
-    font-size: 16px;
-    border-radius: 8px;
-    padding: 4px 10px;
-    margin: 0px 6px 0px 0px;
-    opacity: 1;
-    font-weight: 700;
-    border: 2px solid alpha(@text, 0.1);
+  background-color: alpha(@background, 0.9);
+  color: @text;
+  font-size: 16px;
+  border-radius: 8px;
+  padding: 4px 10px;
+  margin: 0px 6px 0px 0px;
+  opacity: 1;
+  font-weight: 700;
+  border: 2px solid alpha(@text, 0.1);
 }
 
-#custom-dnd { 
-    margin-right: 0px;
-    padding-right: 13px;
+#custom-dnd {
+  margin-right: 0px;
+  padding-right: 13px;
 }
 
 @keyframes blink {
-    to {
-        background-color: @background;
-        color: @text;
-    }
+  to {
+    background-color: @background;
+    color: @text;
+  }
 }
 
 #battery.critical:not(.charging) {
-    background-color: @critical;
-    color: @text;
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
+  background-color: @critical;
+  color: @text;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 
 /* Tray states */
 #tray > .passive {
-    -gtk-icon-effect: dim;
+  -gtk-icon-effect: dim;
 }
 
 #tray > .needs-attention {
-    -gtk-icon-effect: highlight;
+  -gtk-icon-effect: highlight;
 }
 
 /* Ease section left untouched as requested */
@@ -153,8 +153,10 @@ window#waybar.empty #window {
 #custom-music.Playing,
 #custom-music.Paused,
 #custom-music.Stopped {
-    /*color: #DCD7BA;*/
-}/**/
+  /*color: #DCD7BA;*/
+}
+
+/**/
 /*#workspaces button,*/
 /*#workspaces button.active {*/
 /*      background-color: rgba(29, 105, 98, 1);*/
