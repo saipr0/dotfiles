@@ -26,12 +26,12 @@ return {
     require("mini.starter").setup({
       footer = "",
       items = {
-        require("mini.starter").sections.recent_files(5, false, false),
+        require("mini.starter").sections.recent_files(3, false, false),
         {
           name = "config",
           action = function()
             vim.cmd("tcd ~/.config")
-            vim.cmd("Neotree toggle left") -- Toggle neotree
+            vim.cmd("lua MiniFiles.open()") -- Toggle neotree
           end,
           section = "Quick Access",
         },
@@ -39,7 +39,7 @@ return {
           name = "dotfiles",
           action = function()
             vim.cmd("tcd ~/dotfiles")
-            vim.cmd("Neotree toggle left") -- Toggle neotree
+            vim.cmd("lua MiniFiles.open()") -- Toggle neotree
           end,
           section = "Quick Access",
         },
@@ -47,24 +47,24 @@ return {
           name = "nvim",
           action = function()
             vim.cmd("tcd ~/.config/nvim")
-            vim.cmd("Neotree toggle left") -- Toggle neotree
+            vim.cmd("lua MiniFiles.open()") -- Toggle neotree
           end,
           section = "Quick Access",
         },
-        {
-          name = "new file", -- Changed to "new file"
-          action = function()
-            vim.cmd("enew")
-          end,
-          section = "Actions",
-        },
-        {
-          name = "quit neovim", -- Changed to "quit neovim"
-          action = function()
-            vim.cmd("qall")
-          end,
-          section = "Actions",
-        },
+        -- {
+        --   name = "new file", -- Changed to "new file"
+        --   action = function()
+        --     vim.cmd("enew")
+        --   end,
+        --   section = "Actions",
+        -- },
+        -- {
+        --   name = "quit neovim", -- Changed to "quit neovim"
+        --   action = function()
+        --     vim.cmd("qall")
+        --   end,
+        --   section = "Actions",
+        -- },
         {
           name = "lazy update", -- Changed name
           action = function()
@@ -92,53 +92,53 @@ return {
     require("mini.surround").setup()
    -- require("mini.bufremove").setup()
     -- require("mini.indentscope").setup()
-    -- require("mini.clue").setup({
-    -- 	triggers = {
-    -- 		-- Leader triggers
-    -- 		{ mode = "n", keys = "<Leader>" },
-    -- 		{ mode = "x", keys = "<Leader>" },
-    --
-    -- 		-- Built-in completion
-    -- 		{ mode = "i", keys = "<C-x>" },
-    --
-    -- 		-- `g` key
-    -- 		{ mode = "n", keys = "g" },
-    -- 		{ mode = "x", keys = "g" },
-    --
-    -- 		-- Marks
-    -- 		{ mode = "n", keys = "'" },
-    -- 		{ mode = "n", keys = "`" },
-    -- 		{ mode = "x", keys = "'" },
-    -- 		{ mode = "x", keys = "`" },
-    --
-    -- 		-- Registers
-    -- 		{ mode = "n", keys = '"' },
-    -- 		{ mode = "x", keys = '"' },
-    -- 		{ mode = "i", keys = "<C-r>" },
-    -- 		{ mode = "c", keys = "<C-r>" },
-    --
-    -- 		-- Window commands
-    -- 		{ mode = "n", keys = "<C-w>" },
-    --
-    -- 		-- `z` key
-    -- 		{ mode = "n", keys = "z" },
-    -- 		{ mode = "x", keys = "z" },
-    -- 	},
-    --
-    -- 	clues = {
-    -- 		-- Enhance this by adding descriptions for <Leader> mapping groups
-    -- 		require("mini.clue").gen_clues.builtin_completion(),
-    -- 		require("mini.clue").gen_clues.g(),
-    -- 		require("mini.clue").gen_clues.marks(),
-    -- 		require("mini.clue").gen_clues.registers(),
-    -- 		require("mini.clue").gen_clues.windows(),
-    -- 		require("mini.clue").gen_clues.z(),
-    -- 	},
-    --
-    -- 	window = {
-    -- 		delay = 200,
-    -- 	},
-    -- })
+    require("mini.clue").setup({
+    	triggers = {
+    		-- Leader triggers
+    		{ mode = "n", keys = "<Leader>" },
+    		{ mode = "x", keys = "<Leader>" },
+
+    		-- Built-in completion
+    		{ mode = "i", keys = "<C-x>" },
+
+    		-- `g` key
+    		{ mode = "n", keys = "g" },
+    		{ mode = "x", keys = "g" },
+
+    		-- Marks
+    		{ mode = "n", keys = "'" },
+    		{ mode = "n", keys = "`" },
+    		{ mode = "x", keys = "'" },
+    		{ mode = "x", keys = "`" },
+
+    		-- Registers
+    		{ mode = "n", keys = '"' },
+    		{ mode = "x", keys = '"' },
+    		{ mode = "i", keys = "<C-r>" },
+    		{ mode = "c", keys = "<C-r>" },
+
+    		-- Window commands
+    		{ mode = "n", keys = "<C-w>" },
+
+    		-- `z` key
+    		{ mode = "n", keys = "z" },
+    		{ mode = "x", keys = "z" },
+    	},
+
+    	clues = {
+    		-- Enhance this by adding descriptions for <Leader> mapping groups
+    		require("mini.clue").gen_clues.builtin_completion(),
+    		require("mini.clue").gen_clues.g(),
+    		require("mini.clue").gen_clues.marks(),
+    		require("mini.clue").gen_clues.registers(),
+    		require("mini.clue").gen_clues.windows(),
+    		require("mini.clue").gen_clues.z(),
+    	},
+
+    	window = {
+    		delay = 200,
+    	},
+    })
 
     -- Keymaps
     vim.keymap.set(
@@ -153,12 +153,12 @@ return {
       ":lua MiniFiles.close()<CR>",
       { noremap = true, silent = true, desc = "Close MiniFiles" }
     )
-    vim.keymap.set(
-      "n",
-      "<leader>x",
-      ":lua MiniBufremove.delete()<CR>",
-      { noremap = true, silent = true, desc = "Close Buffer" }
-    )
+    -- vim.keymap.set(
+    --   "n",
+    --   "<leader>x",
+    --   ":lua MiniBufremove.delete()<CR>",
+    --   { noremap = true, silent = true, desc = "Close Buffer" }
+    -- )
     vim.keymap.set("n", "<Tab>", ":bnext<CR>", { noremap = true, silent = true })
     vim.keymap.set("n", "<S-Tab>", ":bprevious<CR>", { noremap = true, silent = true })
   end,
