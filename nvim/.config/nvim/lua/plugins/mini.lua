@@ -6,8 +6,8 @@ return {
       windows = {
         preview = true,
         width_focus = 30,
-        width_nofocus = 15,
-        width_preview = 40,
+        width_nofocus = 10,
+        width_preview = 90,
       },
 
       options = {
@@ -22,6 +22,7 @@ return {
     })
 
     require("mini.icons").setup()
+    require("mini.tabline").setup()
     require("mini.sessions").setup()
     require("mini.starter").setup({
       footer = "",
@@ -51,20 +52,20 @@ return {
           end,
           section = "Quick Access",
         },
-        -- {
-        --   name = "new file", -- Changed to "new file"
-        --   action = function()
-        --     vim.cmd("enew")
-        --   end,
-        --   section = "Actions",
-        -- },
-        -- {
-        --   name = "quit neovim", -- Changed to "quit neovim"
-        --   action = function()
-        --     vim.cmd("qall")
-        --   end,
-        --   section = "Actions",
-        -- },
+        {
+          name = "new file", -- Changed to "new file"
+          action = function()
+            vim.cmd("enew")
+          end,
+          section = "Actions",
+        },
+        {
+          name = "quit neovim", -- Changed to "quit neovim"
+          action = function()
+            vim.cmd("qall")
+          end,
+          section = "Actions",
+        },
         {
           name = "lazy update", -- Changed name
           action = function()
@@ -82,7 +83,7 @@ return {
       },
     })
     require("mini.git").setup()
-    require("mini.diff").setup()
+    -- require("mini.diff").setup()
     require("mini.statusline").setup()
     require("mini.comment").setup()
     require("mini.pairs").setup()

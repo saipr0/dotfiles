@@ -18,7 +18,7 @@ return {
         },
         pickers = {
           buffers = {
-            initial_mode = "normal",
+            initial_mode = "insert",
             mappings = {
               n = {
                 ["<c-d>"] = "delete_buffer",
