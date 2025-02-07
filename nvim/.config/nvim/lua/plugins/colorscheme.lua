@@ -52,7 +52,7 @@ return {
   },
   {
     "navarasu/onedark.nvim",
-    enabled = false,
+    enabled = true,
     lazy = false,
     priority = 1000,
     config = function()
@@ -85,7 +85,7 @@ return {
   },
   {
     "rmehri01/onenord.nvim",
-    enabled = true,
+    enabled = false,
     lazy = false,
     priority = 1000,
     config = function()
