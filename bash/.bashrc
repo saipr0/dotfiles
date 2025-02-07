@@ -70,5 +70,5 @@ function y() {
 # Set up Node Version Manager
 source /usr/share/nvm/init-nvm.sh
 
-. /opt/asdf-vm/asdf.sh
+# . /opt/asdf-vm/asdf.sh
 
