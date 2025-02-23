@@ -3,7 +3,7 @@ return {
     "catppuccin/nvim",
     name = "catppuccin",
     priority = 1000,
-    enabled = false,
+    enabled = true,
     opts = {
       flavour = "mocha",
       transparent_background = true,
@@ -52,7 +52,7 @@ return {
   },
   {
     "navarasu/onedark.nvim",
-    enabled = true,
+    enabled = false,
     lazy = false,
     priority = 1000,
     config = function()
