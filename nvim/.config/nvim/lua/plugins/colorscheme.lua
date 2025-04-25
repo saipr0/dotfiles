@@ -16,11 +16,11 @@ return {
     "rebelot/kanagawa.nvim",
     lazy = false,
     priority = 1000,
-    enabled = false,
+    enabled = true,
     config = function()
       require("kanagawa").setup({
         transparent = true,
-        theme = "wave", -- Choose from: "wave", "dragon", "lotus"
+        theme = "dragon", -- Choose from: "wave", "dragon", "lotus"
         commentStyle = { italic = true },
         keywordStyle = { italic = true, bold = true },
         variablebuiltinStyle = { italic = true },
@@ -52,7 +52,7 @@ return {
   },
   {
     "navarasu/onedark.nvim",
-    enabled = true,
+    enabled = false,
     lazy = false,
     priority = 1000,
     config = function()
