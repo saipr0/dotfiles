@@ -39,7 +39,7 @@ alias wifi='nmtui'
 
 alias gg='g++ -ggdb -pedantic-errors -Wall -Weffc++ -Wextra -Wconversion -Wsign-conversion -Werror -std=c++23 -o main main.cpp && ./main'
 alias llms='source ~/miniconda3/bin/activate && conda activate open-webui && open-webui serve'
-
+alias lg='lazygit'
 # path & variables
 
 export EDITOR=nvim
@@ -72,3 +72,4 @@ source /usr/share/nvm/init-nvm.sh
 
 # . /opt/asdf-vm/asdf.sh
 
+. "$HOME/.cargo/env"

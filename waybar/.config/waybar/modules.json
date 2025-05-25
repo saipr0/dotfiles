@@ -63,8 +63,8 @@
 
   "network": {
     "format": "{ifname}",
-    "format-alt": "  {essid}",
-    "format-wifi": "  {bandwidthDownBytes:=}",
+    "format-wifi": "  {essid}",
+    "format-alt": "  {bandwidthDownBytes:=}",
     "interval": 5,
     "format-ethernet": "  {bandwidthDownBytes:=}",
     "format-disconnected": "Disconnected",

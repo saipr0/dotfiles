@@ -32,7 +32,7 @@
       // "hyprland/window",
       "pulseaudio",
     //"cpu",
-    "temperature",
+    // "temperature",
     "network",
       "clock",
       "custom/dnd"

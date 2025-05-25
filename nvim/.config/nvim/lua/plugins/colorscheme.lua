@@ -52,7 +52,7 @@ return {
   },
   {
     "navarasu/onedark.nvim",
-    enabled = false,
+    enabled = true,
     lazy = false,
     priority = 1000,
     config = function()
