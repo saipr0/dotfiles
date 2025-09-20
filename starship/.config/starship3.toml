@@ -1,0 +1,64 @@
+# Minimal prompt config
+add_newline = false
+
+format = "$cmd_duration $directory $git_branch$git_status $character"
+
+[character]
+success_symbol = "➜"
+error_symbol = "✗"
+
+[package]
+disabled = true
+
+[git_branch]
+symbol = "󰘬"
+truncation_length = 12
+format = " [$symbol $branch]($style)"
+style = "cyan"
+
+[git_commit]
+commit_hash_length = 4
+tag_symbol = " "
+
+[git_state]
+format = " ($state) "
+cherry_pick = "🍒"
+
+[git_status]
+format = "[$staged$modified$deleted$untracked$ahead_behind]($style)"
+ahead = " ↑${count}"
+behind = " ↓${count}"
+diverged = " ↕${count}"
+conflicted = " ✖${count}"
+untracked = " ?${count}"
+stashed = " ≡${count}"
+modified = " ~${count}"
+staged = " +${count}"
+renamed = " »${count}"
+deleted = " -${count}"
+style = "dimmed cyan"
+
+[hostname]
+ssh_only = false
+format = " @[$hostname]($style)"
+style = "dimmed"
+trim_at = ".companyname.com"
+disabled = false
+
+[username]
+format = "[$user]($style)"
+style_user = "bold cyan"
+style_root = "bold red"
+show_always = true
+
+[directory]
+read_only = " "
+truncation_length = 3
+truncation_symbol = "../"
+style = "blue"
+format = "[$path]($style)"
+
+[cmd_duration]
+min_time = 500  # only show if command >0.5s
+format = "⏱ $duration"
+style = "yellow"

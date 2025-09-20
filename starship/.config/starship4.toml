@@ -1,0 +1,71 @@
+# Monochrome prompt config
+add_newline = false
+
+format = """
+ $directory $git_branch$git_status
+$character"""
+
+[character]
+success_symbol = " ➜"
+error_symbol = " ✗"
+
+[package]
+disabled = true
+
+[git_branch]
+symbol = "󰘬"
+truncation_length = 12
+truncation_symbol = ""
+format = " $symbol $branch(:$remote_branch)"
+
+[git_commit]
+commit_hash_length = 4
+tag_symbol = " "
+
+[git_state]
+format = " ($state $progress_current of $progress_total) "
+cherry_pick = "🍒 PICKING"
+
+[git_status]
+format = " $staged$modified$deleted$renamed$conflicted$untracked$stashed$ahead_behind"
+ahead = " ↑${count}"
+behind = " ↓${count}"
+diverged = " ↕${count}"
+conflicted = " ✖${count}"
+untracked = " ?${count}"
+stashed = " ≡${count}"
+modified = " ~${count}"
+staged = " +${count}"
+renamed = " »${count}"
+deleted = " -${count}"
+
+[hostname]
+ssh_only = false
+format = " @$hostname"
+trim_at = ".companyname.com"
+disabled = false
+
+[line_break]
+disabled = false
+
+[memory_usage]
+disabled = true
+
+[time]
+disabled = true
+time_format = "%T"
+
+[username]
+format = "$user"
+disabled = false
+show_always = true
+
+[directory]
+read_only = " "
+truncation_length = 6
+truncation_symbol = "../"
+format = "󰉋 $path"
+
+[cmd_duration]
+min_time = 0
+format = "⏱ $duration"
