@@ -1,0 +1,45 @@
+#!/bin/bash
+# gwr - Git Worktree Remove
+# Removes a specific worktree folder from current feature directory
+# Usage: gwr <folder_name>
+# Must be run from inside _worktrees/<feature>/ directory
+
+set -e
+
+if [ $# -ne 1 ]; then
+  echo "Usage: gwr <folder_name>"
+  echo "Must be run from inside _worktrees/<feature>/ directory"
+  exit 1
+fi
+
+FOLDER_NAME="$1"
+
+# Check if folder exists in current directory
+if [ ! -d "$FOLDER_NAME" ]; then
+  echo "Error: Folder '$FOLDER_NAME' not found in current directory"
+  echo "Current directory: $(pwd)"
+  ls -1
+  exit 1
+fi
+
+# Get absolute path of the folder to remove
+WORKTREE_PATH=$(cd "$FOLDER_NAME" && pwd)
+
+# Find the main repo directory (go up to find it)
+# Assuming structure: _worktrees/<feature>/<repo>/
+# Main repo should be at ../../<repo>/
+PARENT_DIR=$(cd ../.. && pwd)
+REPO_DIR="$PARENT_DIR/$FOLDER_NAME"
+
+if [ ! -d "$REPO_DIR" ]; then
+  echo "Error: Could not find main repository at $REPO_DIR"
+  exit 1
+fi
+
+# Go to main repo and remove worktree
+cd "$REPO_DIR"
+git worktree remove "$WORKTREE_PATH"
+
+# Return to feature directory and remove the folder
+cd - > /dev/null
+rm -rf "$FOLDER_NAME"

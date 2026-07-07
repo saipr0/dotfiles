@@ -1,0 +1,26 @@
+# Core CLI tools
+stow
+git
+neovim
+tmux
+ripgrep
+fd
+bat
+eza
+fzf
+jq
+lazygit
+yazi
+zoxide
+LINUX:xclip
+
+# Shells
+zsh
+fish
+
+# Fonts
+FONT:maple-mono-nf
+
+# Misc dev tools
+gh
+delta

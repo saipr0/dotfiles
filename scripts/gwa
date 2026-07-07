@@ -1,0 +1,59 @@
+#!/bin/bash
+# gwa - Git Worktree Add
+# Creates a worktree in _worktrees/<branch>/<repo>/
+# Usage: gwa <branch>
+
+set -e
+
+# Check if branch argument is provided
+if [ $# -ne 1 ]; then
+  echo "Usage: gwa <branch>"
+  echo "Example: gwa v2-processing"
+  exit 1
+fi
+
+BRANCH="$1"
+
+# Check if we're in a git repo
+if ! git rev-parse --git-dir > /dev/null 2>&1; then
+  echo "Error: Not in a git repository"
+  exit 1
+fi
+
+# Get repo name (directory name)
+REPO_DIR=$(git rev-parse --show-toplevel)
+REPO_NAME=$(basename "$REPO_DIR")
+
+# Convert slashes to dashes for folder name
+FEATURE_FOLDER="${BRANCH//\//-}"
+
+# Go up one level from repo root
+PARENT_DIR=$(dirname "$REPO_DIR")
+WORKTREES_DIR="$PARENT_DIR/_worktrees"
+TARGET_DIR="$WORKTREES_DIR/$FEATURE_FOLDER/$REPO_NAME"
+
+# Create directories if they don't exist
+mkdir -p "$WORKTREES_DIR/$FEATURE_FOLDER"
+
+# Check if worktree already exists
+if [ -d "$TARGET_DIR" ]; then
+  echo "Error: Worktree already exists at $TARGET_DIR"
+  exit 1
+fi
+
+# Check if branch exists
+if git show-ref --verify --quiet "refs/heads/$BRANCH"; then
+  # Branch exists
+  git worktree add "$TARGET_DIR" "$BRANCH"
+else
+  # Branch doesn't exist - create from current branch
+  CURRENT_BRANCH=$(git branch --show-current)
+  echo "Creating new branch '$BRANCH' from '$CURRENT_BRANCH'"
+  git worktree add -b "$BRANCH" "$TARGET_DIR"
+fi
+
+# Auto-symlink .env for fulcrum
+if [ "$REPO_NAME" = "fulcrum" ] && [ -f "$REPO_DIR/.env" ]; then
+  ln -sf "$REPO_DIR/.env" "$TARGET_DIR/.env"
+fi
+

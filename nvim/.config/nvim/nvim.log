@@ -1,0 +1,28 @@
+WRN 2026-05-02T10:08:39.379 ?.95526    server_start:197: Failed to start server: operation not permitted: /var/folders/p5/qt24v2vn0h58lq_2yl3z7qcc0000gn/T/nvim.saipr/E0LKes/nvim.95526.0
+WRN 2026-05-02T10:13:51.058 ?.97259    server_start:197: Failed to start server: operation not permitted: /var/folders/p5/qt24v2vn0h58lq_2yl3z7qcc0000gn/T/nvim.saipr/eyUEbi/nvim.97259.0
+WRN 2026-05-02T10:18:50.747 ?.99587    server_start:197: Failed to start server: operation not permitted: /var/folders/p5/qt24v2vn0h58lq_2yl3z7qcc0000gn/T/nvim.saipr/Fngi2j/nvim.99587.0
+WRN 2026-05-02T10:19:06.105 ?.99644    server_start:197: Failed to start server: operation not permitted: /var/folders/p5/qt24v2vn0h58lq_2yl3z7qcc0000gn/T/nvim.saipr/KSWJ6Y/nvim.99644.0
+WRN 2026-05-02T10:19:51.537 ?.99879    server_start:197: Failed to start server: operation not permitted: /var/folders/p5/qt24v2vn0h58lq_2yl3z7qcc0000gn/T/nvim.saipr/RDBKiV/nvim.99879.0
+WRN 2026-05-02T10:19:51.650 ?.99880    server_start:197: Failed to start server: operation not permitted: /var/folders/p5/qt24v2vn0h58lq_2yl3z7qcc0000gn/T/nvim.saipr/5cB9z5/nvim.99880.0
+WRN 2026-05-02T10:20:27.156 ?.205      server_start:197: Failed to start server: operation not permitted: /var/folders/p5/qt24v2vn0h58lq_2yl3z7qcc0000gn/T/nvim.saipr/Xu3R1Y/nvim.205.0
+WRN 2026-05-02T10:20:27.156 ?.204      server_start:197: Failed to start server: operation not permitted: /var/folders/p5/qt24v2vn0h58lq_2yl3z7qcc0000gn/T/nvim.saipr/ue1Vuj/nvim.204.0
+WRN 2026-05-02T10:20:37.443 ?.264      server_start:197: Failed to start server: operation not permitted: /var/folders/p5/qt24v2vn0h58lq_2yl3z7qcc0000gn/T/nvim.saipr/9ktZ8I/nvim.264.0
+WRN 2026-05-02T10:20:54.095 ?.734      server_start:197: Failed to start server: operation not permitted: /var/folders/p5/qt24v2vn0h58lq_2yl3z7qcc0000gn/T/nvim.saipr/wj62Uc/nvim.734.0
+WRN 2026-05-20T21:51:02.592 ?.57683    server_start:197: Failed to start server: operation not permitted: /var/folders/p5/qt24v2vn0h58lq_2yl3z7qcc0000gn/T/nvim.saipr/vSnjCr/nvim.57683.0
+WRN 2026-05-20T21:51:08.710 ?.57778    server_start:197: Failed to start server: operation not permitted: /var/folders/p5/qt24v2vn0h58lq_2yl3z7qcc0000gn/T/nvim.saipr/C7mpnl/nvim.57778.0
+WRN 2026-05-20T21:54:34.890 ?.59979    server_start:197: Failed to start server: operation not permitted: /var/folders/p5/qt24v2vn0h58lq_2yl3z7qcc0000gn/T/nvim.saipr/3auf2T/nvim.59979.0
+WRN 2026-05-20T23:03:50.253 ?.92056    server_start:197: Failed to start server: operation not permitted: /var/folders/p5/qt24v2vn0h58lq_2yl3z7qcc0000gn/T/nvim.saipr/kWMhbM/nvim.92056.0
+WRN 2026-05-20T23:06:34.602 ?.94085    server_start:197: Failed to start server: operation not permitted: /var/folders/p5/qt24v2vn0h58lq_2yl3z7qcc0000gn/T/nvim.saipr/Vr1al6/nvim.94085.0
+WRN 2026-05-21T12:00:37.648 ?.70220    server_start:197: Failed to start server: operation not permitted: /var/folders/p5/qt24v2vn0h58lq_2yl3z7qcc0000gn/T/nvim.saipr/uWQcEX/nvim.70220.0
+WRN 2026-06-08T22:39:53.431 ?.99721    server_start:197: Failed to start server: operation not permitted: /var/folders/p5/qt24v2vn0h58lq_2yl3z7qcc0000gn/T/nvim.saipr/NGXF41/nvim.99721.0
+WRN 2026-06-08T22:39:53.547 ?.99725    server_start:197: Failed to start server: operation not permitted: /var/folders/p5/qt24v2vn0h58lq_2yl3z7qcc0000gn/T/nvim.saipr/SmKmv9/nvim.99725.0
+WRN 2026-06-08T22:45:02.944 ?.4132     server_start:197: Failed to start server: operation not permitted: /var/folders/p5/qt24v2vn0h58lq_2yl3z7qcc0000gn/T/nvim.saipr/6H7NWc/nvim.4132.0
+WRN 2026-06-08T22:47:03.708 ?.5010     server_start:197: Failed to start server: operation not permitted: /var/folders/p5/qt24v2vn0h58lq_2yl3z7qcc0000gn/T/nvim.saipr/64946j/nvim.5010.0
+WRN 2026-06-08T22:47:04.841 ui.5009    tui_stop:658: TUI: timed out waiting for DA1 response
+WRN 2026-06-08T22:47:14.189 ?.5076     server_start:197: Failed to start server: operation not permitted: /var/folders/p5/qt24v2vn0h58lq_2yl3z7qcc0000gn/T/nvim.saipr/lO820y/nvim.5076.0
+WRN 2026-06-08T22:47:15.620 ui.5075    tui_stop:658: TUI: timed out waiting for DA1 response
+WRN 2026-06-08T22:47:21.496 ?.5124     server_start:197: Failed to start server: operation not permitted: /var/folders/p5/qt24v2vn0h58lq_2yl3z7qcc0000gn/T/nvim.saipr/ZvlXJn/nvim.5124.0
+WRN 2026-06-08T22:47:41.450 ui.5122    tui_stop:658: TUI: timed out waiting for DA1 response
+WRN 2026-06-08T22:47:59.326 ?.5414     server_start:197: Failed to start server: operation not permitted: /var/folders/p5/qt24v2vn0h58lq_2yl3z7qcc0000gn/T/nvim.saipr/JHFv59/nvim.5414.0
+WRN 2026-06-08T22:48:18.863 ui.5413    tui_stop:658: TUI: timed out waiting for DA1 response
+WRN 2026-06-08T23:27:46.822 ?.64701    server_start:197: Failed to start server: operation not permitted: /var/folders/p5/qt24v2vn0h58lq_2yl3z7qcc0000gn/T/nvim.saipr/p1zA0N/nvim.64701.0

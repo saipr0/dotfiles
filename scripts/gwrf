@@ -1,0 +1,54 @@
+#!/bin/bash
+# gwrf - Git Worktree Remove Feature
+# Removes entire feature directory with all its worktrees
+# Usage: gwrf <feature_name>
+# Must be run from inside _worktrees/ directory
+
+set -e
+
+if [ $# -ne 1 ]; then
+  echo "Usage: gwrf <feature_name>"
+  echo "Must be run from inside _worktrees/ directory"
+  exit 1
+fi
+
+FEATURE_NAME="$1"
+
+# Check if we're in _worktrees directory
+if [ "$(basename $(pwd))" != "_worktrees" ]; then
+  echo "Error: Must be run from inside _worktrees/ directory"
+  echo "Current directory: $(pwd)"
+  exit 1
+fi
+
+# Check if feature folder exists
+if [ ! -d "$FEATURE_NAME" ]; then
+  echo "Error: Feature folder '$FEATURE_NAME' not found"
+  echo "Available features:"
+  ls -1
+  exit 1
+fi
+
+# Get parent directory (where main repos are)
+PARENT_DIR=$(cd .. && pwd)
+
+# Loop through each worktree in the feature folder
+for REPO_FOLDER in "$FEATURE_NAME"/*; do
+  if [ -d "$REPO_FOLDER" ]; then
+    REPO_NAME=$(basename "$REPO_FOLDER")
+    WORKTREE_PATH=$(cd "$REPO_FOLDER" && pwd)
+    REPO_DIR="$PARENT_DIR/$REPO_NAME"
+    
+    if [ -d "$REPO_DIR" ]; then
+      cd "$REPO_DIR"
+      if ! git worktree remove "$WORKTREE_PATH" 2>&1; then
+        echo "Error: Cannot remove '$REPO_NAME' - uncommitted changes or untracked files"
+        exit 1
+      fi
+      cd - > /dev/null
+    fi
+  fi
+done
+
+# Remove the entire feature directory
+rm -rf "$FEATURE_NAME"
