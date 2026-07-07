@@ -15,7 +15,11 @@ if [[ ! -d "$ZINIT_HOME" ]]; then
   git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 fi
 
-source "${ZINIT_HOME}/zinit.zsh"
+if [[ -r "${ZINIT_HOME}/zinit.zsh" ]]; then
+  source "${ZINIT_HOME}/zinit.zsh"
+else
+  return
+fi
 
 zinit ice depth=1
 zinit light romkatv/powerlevel10k

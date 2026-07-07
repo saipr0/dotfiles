@@ -85,6 +85,13 @@ log "Wiring mise into shells"
 append_once "$HOME/.bashrc" 'eval "$($HOME/.local/bin/mise activate bash)"'
 append_once "$HOME/.zshrc" 'eval "$($HOME/.local/bin/mise activate zsh)"'
 
+log "Installing zinit"
+ZINIT_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/zinit/zinit.git"
+if [ ! -d "$ZINIT_HOME" ]; then
+  mkdir -p "$(dirname "$ZINIT_HOME")"
+  git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+fi
+
 log "Installing mise-managed tools"
 "$MISE_BIN" trust -a || true
 "$MISE_BIN" install
