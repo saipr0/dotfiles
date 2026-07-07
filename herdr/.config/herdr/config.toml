@@ -1,0 +1,16 @@
+[theme]
+name = "terminal"
+auto_switch = false
+
+[ui]
+agent_panel_sort = "spaces"
+pane_gaps = false
+
+[keys]
+last_pane = "prefix+shift+l"
+
+[[keys.command]]
+key = "ctrl+g"
+type = "pane"
+command = "lazygit"
+description = "open lazygit"

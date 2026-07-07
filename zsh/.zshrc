@@ -80,7 +80,7 @@ alias pr='source ~/.zshrc'
 
 # Rails.
 alias rc='bin/rails console'
-alias rs='bin/rails server -b 0.0.0.0'
+alias rs='bin/rails server'
 
 # Git.
 alias gc='git checkout .'
@@ -88,12 +88,6 @@ alias gp='git pull'
 alias gf='git fetch'
 alias gsd='git switch develop'
 alias gs='git switch'
-
-# Tmux.
-alias ta='tmux attach'
-alias tl='tmux list-sessions'
-alias tn='tmux new-session -s'
-alias ts='$HOME/.config/scripts/tmux-sessionizer.sh'
 
 # Tool initialization.
 if command -v fzf >/dev/null 2>&1; then
