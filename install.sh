@@ -89,4 +89,12 @@ log "Installing mise-managed tools"
 "$MISE_BIN" trust -a || true
 "$MISE_BIN" install
 
+ZSH_BIN="$(command -v zsh || true)"
+if [ -n "$ZSH_BIN" ]; then
+  log "Changing default shell to zsh"
+  chsh -s "$ZSH_BIN" "$USER" || log "Skipping shell change (chsh failed)"
+else
+  log "Skipping shell change (zsh not found)"
+fi
+
 log "Done. Open a new shell, or run: exec \$SHELL -l"
